@@ -90,11 +90,12 @@
 <main>
     <h1>Blog of the .Day</h1>
     <p>Explore the (indie) web, one blog at a time.</p>
+    {% set site = dates.dates[today] %}
     <browser-window>
-        <iframe src="https://{% blogToday %}" title="Blog of the .Day"></iframe>
+        <iframe src="https://{{ site }}" title="Blog of the .Day"></iframe>
     </browser-window>
     <section id="buttons">
-        <a class="button-link" href="https://{% blogToday %}">Visit {% blogToday %}</a>
+        <a class="button-link" href="https://{{ site }}">Visit {{ site }}</a>
         <br>
         <a class="button-link" href="/feed.xml">Subscribe to Blog of the .Day RSS Feed</a>
     </section>
