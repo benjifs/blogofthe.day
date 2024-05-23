@@ -1,7 +1,7 @@
 const fs = require('fs');
 
-const sites = require('./sites.json');
-const dates = require('./dates.json');
+const sites = require('./_data/sites.json');
+const dates = require('./_data/dates.json');
 const today = new Date().toISOString().split('T')[0];
 const numberOfSites = sites.blogs.length;
 const maxNumberOfDates = numberOfSites * 2;
@@ -18,7 +18,6 @@ console.log(`There are ${numberOfDates} dates in the feed.`);
 if (dates.dates[today]) {
     console.log("Today's blog is already set.")
 } else {
-
     const sitesInThePastWeek = new Set(Object.values(dates.dates));
     const sitesNotInPastWeek = sites.blogs.filter(site => !sitesInThePastWeek.has(site));
     // As time goes on need an accurate restrictor. random number generators are not respectful
@@ -57,7 +56,7 @@ sortedDates.forEach(date => {
     sortedDatesObject[date] = dates.dates[date];
 });
 
-fs.writeFileSync('./dates.json', JSON.stringify({dates: sortedDatesObject}, null, 2));
+fs.writeFileSync('./_data/dates.json', JSON.stringify({dates: sortedDatesObject}, null, 2));
 
 const fetch = (...args) =>
     import('node-fetch').then(({default: fetch}) => fetch(...args));
@@ -80,7 +79,7 @@ sites.blogs.forEach(site => {
                 const $ = cheerio.load(html);
                 const desc = $('meta[name="description"]').attr('content');
                 sites.descriptions[site] = desc || "";
-                fs.writeFileSync('./sites.json', JSON.stringify(sites, null, 2));
+                fs.writeFileSync('./_data/sites.json', JSON.stringify(sites, null, 2));
             });
     }
 });
@@ -88,24 +87,24 @@ sites.blogs.forEach(site => {
 // populate the rss feed
 // iterate over the dates object and create an rss feed and write to feed.xml
 
-const RSS = require('rss');
-const feed = new RSS({
-    title: 'Blog of the .Day',
-    feed_url: 'https://blogofthe.day/feed.xml',
-    site_url: 'https://blogofthe.day',
-    description: 'Blog of the .Day'
-});
+// const RSS = require('rss');
+// const feed = new RSS({
+//     title: 'Blog of the .Day',
+//     feed_url: 'https://blogofthe.day/feed.xml',
+//     site_url: 'https://blogofthe.day',
+//     description: 'Blog of the .Day'
+// });
 
-Object.keys(dates.dates).forEach(date => {
-    const site = dates.dates[date];
-    const sites = require('./sites.json');
-    const description = sites.descriptions[site] || '';
-    feed.item({
-        title: site,
-        description: description,
-        url: `https://${site}`,
-        date: date
-    });
-});
+// Object.keys(dates.dates).forEach(date => {
+//     const site = dates.dates[date];
+//     const sites = require('./_data/sites.json');
+//     const description = sites.descriptions[site] || '';
+//     feed.item({
+//         title: site,
+//         description: description,
+//         url: `https://${site}`,
+//         date: date
+//     });
+// });
 
-fs.writeFileSync('./feed.xml', feed.xml({indent: true}));
+// fs.writeFileSync('./feed.xml', feed.xml({indent: true}));
