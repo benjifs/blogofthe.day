@@ -27,10 +27,8 @@ jobs:
       # commit results to repository
       - name: Commit results
         run: |
-          git config --local user.email "joe@artlung.com"
-          git config --local user.name "artlung"
-          git add index.html
-          git add *.json
-          git add *.xml
-          git commit -m "Update results"
+          git config --local user.name github-actions
+          git config --local user.email github-actions@github.com
+          git add _data/*
+          git commit -m "Update _data"
           git push
