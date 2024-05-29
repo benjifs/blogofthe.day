@@ -1,13 +1,8 @@
 ---
 layout: "layouts/rss.njk"
 permalink: "/{{ lang }}/feed.xml"
-languages:
-- en
-- es
 pagination:
-  data: languages
+  data: supportedLanguages
   size: 1
   alias: lang
 ---
-{%- set dates = lang.dates %}
-{%- set sites = lang.sites %}
