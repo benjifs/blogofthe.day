@@ -56,7 +56,7 @@ sortedDates.forEach(date => {
     sortedDatesObject[date] = dates[date];
 });
 
-fs.writeFileSync('./_data/en/dates.json', JSON.stringify({dates: sortedDatesObject}, null, 2));
+fs.writeFileSync('./_data/en/dates.json', JSON.stringify(sortedDatesObject, null, 2));
 
 const fetch = (...args) =>
     import('node-fetch').then(({default: fetch}) => fetch(...args));
