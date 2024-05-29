@@ -1,7 +1,0 @@
-# Redirect any URLs with the language code in them already
-/es/*   /:splat     301!
-/en/*   /:splat     301!
-
-# Show the language-specific content file
-/*      /es/:splat  200   Language=es
-/*      /en/:splat  200
