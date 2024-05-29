@@ -1,0 +1,79 @@
+<script src="/assets/js/browser-window.js"></script>
+<!--from the indieweb-->
+<style>
+	html, body {
+		height: 100%;
+		max-width: 100ch;
+		margin: auto;
+	}
+
+	:root {
+		--theme-color: #7ea1ff;
+	}
+
+	* {
+		font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+		box-sizing: border-box;
+	}
+
+	main {
+		text-align: center;
+		margin: auto;
+	}
+
+	iframe {
+		border: none;
+	}
+
+	browser-window {
+		display: block;
+		margin: auto;
+	}
+
+	iframe, browser-window {
+		height: 500px;
+		width: clamp(500px, 80%, 800px);
+		overflow: hidden;
+	}
+
+	#buttons {
+		margin: auto;
+		display: grid;
+		gap: 1ch;
+		max-width: 24ch;
+	}
+
+	.button-link {
+		display: inline-block;
+		padding: 1ch 2ch;
+		margin: 0;
+		background-color: var(--theme-color);
+		color: white;
+		text-decoration: none;
+		border-radius: 5px;
+	}
+
+	a {
+		text-decoration: none;
+		color: var(--theme-color);
+	}
+
+	a:hover {
+		text-decoration: underline;
+	}
+
+	details {
+		margin-top: 20px;
+		border: 2px dotted var(--theme-color);
+		padding: 10px;
+	}
+
+	details > h2, details > p {
+		text-align: left;
+		margin: 20px 0;
+	}
+
+	footer p small {
+		color: color-mix(in srgb, var(--theme-color), transparent 60%);
+	}
+</style>

@@ -1,0 +1,27 @@
+---
+layout: layouts/base.njk
+---
+<h1>Blog of the .Day</h1>
+<p>{{ description }}</p>
+<browser-window>
+	<iframe src="https://{{ site }}" title="Blog of the .Day"></iframe>
+</browser-window>
+<section id="buttons">
+	<a class="button-link" href="https://{{ site }}">Visit {{ site }}</a>
+	<br>
+	<a class="button-link" href="/feed.xml">Subscribe to Blog of the .Day RSS Feed</a>
+</section>
+<section id="about">
+	<details>
+		<summary>About Blog of the .Day</summary>
+		<h2>About Blog of the .Day</h2>
+		<p>While most of your experience of the web may be with corporate-owned websites, there are many people
+			bucking this trend with a rebellious act: creating and maintaining a personal website.</p>
+		<p>Bloggers around the world talk about the consequential and the inconsequential, from one's failed attempt
+			to make a recipe to an idea that challenges the way we think about social networking.</p>
+		<p>Every day, Blog of the .Day highlights a new blog. The blog is chosen at random and a new one should be deployed daily via Netlify.
+			<em>note: in May 2024 <a href="http://artlung.com/blogofthe-day/">Joe Crawford became the steward</a> of this project.
+		<p>Want to add your blog to the list? Submit a pull request on the <a
+			href="https://github.com/artlung/blogofthe.day">project GitHub page</a>.</p>
+	</details>
+</section>
