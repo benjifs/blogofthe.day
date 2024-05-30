@@ -1,3 +1,4 @@
 # Show the language-specific content file
-/*      /es/:splat  200   Language=es
+/*      /zh/:splat  200   Language=zh
+/*      /fr/:splat  200   Language=fr
 /*      /en/:splat  200
